@@ -1,10 +1,12 @@
 :root {
-  --text: #1f2933;
-  --muted: #52606d;
-  --background: #fdfcf9;
-  --accent: #1d5fa8;
-  --border: #d9d4c7;
-  --max-width: 46rem;
+  --text: #193942;
+  --muted: #36545d;
+  --background: #ffffff;
+  --accent: #006884;
+  --border: #b5c7eb;
+  --soft-blue: #edf2fb;
+  --orange: #a63810;
+  --max-width: 74rem;
 }
 
 *,
@@ -15,9 +17,9 @@
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: Georgia, "Times New Roman", serif;
   font-size: 1.125rem;
-  line-height: 1.6;
+  line-height: 1.7;
   color: var(--text);
   background: var(--background);
 }
@@ -41,11 +43,14 @@ main,
 
 .site-title {
   margin: 0;
-  font-weight: 700;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
 }
 
 .site-title a {
-  color: inherit;
+  color: var(--text);
   text-decoration: none;
 }
 
@@ -58,18 +63,33 @@ nav ul {
   list-style: none;
 }
 
+nav a {
+  font-size: 0.98rem;
+  font-weight: 700;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+}
+
 a {
   color: var(--accent);
 }
 
 a:focus-visible {
-  outline: 3px solid var(--accent);
-  outline-offset: 2px;
+  outline: 3px solid var(--orange);
+  outline-offset: 4px;
 }
 
 h1 {
-  font-size: 2.25rem;
-  line-height: 1.2;
+  margin: 0.5rem 0 1.25rem;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-weight: 400;
+  letter-spacing: 0.015em;
+  line-height: 0.98;
+}
+
+h1 span {
+  color: var(--accent);
 }
 
 img,
@@ -84,6 +104,18 @@ video {
   font-size: 1rem;
 }
 
+.site-footer .footer-title {
+  margin: 0 0 0.2rem;
+  color: var(--text);
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.04em;
+}
+
+.site-footer p:last-child {
+  margin-top: 0;
+}
+
 .skip-link {
   position: absolute;
   left: -999rem;
@@ -92,6 +124,222 @@ video {
 .skip-link:focus {
   left: 1rem;
   top: 1rem;
+  z-index: 10;
   padding: 0.5rem 0.75rem;
+  color: var(--text);
   background: var(--background);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: clamp(2rem, 6vw, 5.5rem);
+  padding-top: clamp(3rem, 8vw, 7rem);
+  padding-bottom: clamp(3.5rem, 8vw, 7rem);
+}
+
+.hero-copy {
+  max-width: 38rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  color: var(--orange);
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.hero-intro {
+  max-width: 35rem;
+  margin: 0 0 1.75rem;
+  font-size: clamp(1.15rem, 2vw, 1.35rem);
+}
+
+.button-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 48px;
+  padding: 0.65rem 1rem;
+  border: 2px solid var(--accent);
+  border-radius: 2px;
+  color: #ffffff;
+  background: var(--accent);
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.button-link:hover {
+  color: var(--text);
+  background: var(--soft-blue);
+}
+
+.hero-art,
+.approach-art {
+  margin: 0;
+}
+
+.hero-art img {
+  display: block;
+  width: 100%;
+  max-height: 36rem;
+  object-fit: cover;
+  border-radius: 48% 48% 3px 3px;
+}
+
+.hero-art figcaption {
+  margin-top: 0.7rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+.content-section {
+  padding: clamp(3rem, 7vw, 6rem) 1.25rem;
+}
+
+.section-heading {
+  max-width: 43rem;
+}
+
+h2 {
+  margin: 0.2rem 0 1rem;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-weight: 400;
+  line-height: 1.08;
+}
+
+.section-lede {
+  max-width: 48rem;
+  margin: 0 0 2rem;
+  color: var(--muted);
+  font-size: 1.2rem;
+}
+
+.question-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.question-card {
+  min-height: 13rem;
+  padding: 1.5rem;
+  border-top: 4px solid var(--orange);
+  background: var(--soft-blue);
+}
+
+.card-mark {
+  color: var(--accent);
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+}
+
+.question-card h3 {
+  margin: 0.6rem 0 0.35rem;
+  font-size: 1.35rem;
+}
+
+.question-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.reading-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: clamp(2rem, 6vw, 5rem);
+  padding: clamp(2rem, 5vw, 4rem) 1.25rem;
+  background: var(--soft-blue);
+}
+
+.reading-art img {
+  display: block;
+  width: 100%;
+  max-height: 32rem;
+  object-fit: cover;
+}
+
+.reading-copy {
+  max-width: 35rem;
+}
+
+.reading-note {
+  margin-top: 1.5rem;
+  padding-left: 1rem;
+  border-left: 4px solid var(--orange);
+  color: var(--muted);
+  font-style: italic;
+}
+
+.approach-section {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  align-items: center;
+  gap: clamp(2rem, 6vw, 5rem);
+}
+
+.approach-copy {
+  max-width: 40rem;
+}
+
+.approach-art img {
+  display: block;
+  width: 100%;
+  max-height: 26rem;
+  object-fit: cover;
+  border-radius: 50% 50% 3px 3px;
+}
+
+@media (max-width: 46rem) {
+  .site-header,
+  main,
+  .site-footer {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  .hero,
+  .reading-section,
+  .approach-section {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    gap: 2rem;
+  }
+
+  .hero-art {
+    max-width: 34rem;
+  }
+
+  .question-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .question-card {
+    min-height: auto;
+  }
+
+  .reading-section {
+    gap: 1.5rem;
+  }
+
+  .reading-art {
+    order: 2;
+  }
+
+  .approach-art {
+    max-width: 30rem;
+  }
 }
